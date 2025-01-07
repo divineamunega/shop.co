@@ -4,9 +4,7 @@ import Navbar from "../ui/Navbar";
 import HeaderBanner from "../ui/HeaderBanner";
 
 const StyledPageLayout = styled.div`
-	& > * {
-		padding: 1px;
-	}
+	height: fit-content;
 `;
 
 type PageLayoutPropType = {
