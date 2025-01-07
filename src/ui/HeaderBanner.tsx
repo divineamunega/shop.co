@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import breakpoints from "../styles/breakpoints";
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
-const StyledHeaderBanner = styled.div`
+const StyledHeaderBanner = styled(motion.div)`
 	width: 100%;
 	background-color: black;
 	color: white;
@@ -18,7 +21,7 @@ const StyledHeaderBanner = styled.div`
 		color: white;
 	}
 
-	& button {
+	button {
 		position: absolute;
 		right: 8rem;
 		background-color: rgba(0, 0, 0, 0);
@@ -26,20 +29,44 @@ const StyledHeaderBanner = styled.div`
 		font-size: 1.8rem;
 		font-weight: 700;
 		border: none;
+		cursor: pointer;
+	}
+
+	@media (max-width: ${breakpoints.mobile}) {
+		button {
+			display: none;
+		}
 	}
 `;
 
 const HeaderBanner = () => {
+	const [isOpen, setIsOpen] = useState(true);
+
 	return (
-		<StyledHeaderBanner>
-			<span>
-				Sign up and get 20% off your first order.{" "}
-				<Link to="sign-up">Sign up Now</Link>
-			</span>
-			<button>
-				<span>X</span>
-			</button>
-		</StyledHeaderBanner>
+		<AnimatePresence>
+			{isOpen ? (
+				<StyledHeaderBanner
+					exit={{
+						y: "-100%",
+					}}
+					transition={{
+						duration: "0.3",
+					}}
+				>
+					<span>
+						Sign up and get 20% off your first order.{" "}
+						<Link to="sign-up">Sign up Now</Link>
+					</span>
+					<button
+						onClick={() => {
+							setIsOpen(false);
+						}}
+					>
+						<span>X</span>
+					</button>
+				</StyledHeaderBanner>
+			) : null}
+		</AnimatePresence>
 	);
 };
 
