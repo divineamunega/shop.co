@@ -4,6 +4,8 @@ import { BiCart, BiMenu, BiSearch, BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import variables from "../styles/variables";
 import { lgScreen, mdScreen, smScreen } from "../styles/mixins";
+import Sidebar from "./Sidebar";
+import { useState } from "react";
 
 const StyledNavbar = styled.nav`
 	background-color: white;
@@ -13,6 +15,7 @@ const StyledNavbar = styled.nav`
 	font-family: var(--primary-font);
 	padding: 2rem 1rem;
 	gap: 3rem;
+	position: relative;
 
 	${smScreen(css`
 		padding: 2rem 2rem;
@@ -121,8 +124,15 @@ const StyledNavbar = styled.nav`
 `;
 
 const Navbar = () => {
+	const [sideIsOpen, setSideIsOpen] = useState(true);
+
+	const toggleSideIsOpen = () => {
+		setSideIsOpen((open) => !open);
+	};
+
 	return (
 		<StyledNavbar>
+			<Sidebar toggleSideIsOpen={toggleSideIsOpen} sideIsOpen={sideIsOpen} />
 			<Logo />
 			<ul className="nav_links">
 				<li>
@@ -156,7 +166,7 @@ const Navbar = () => {
 				<button>
 					<BiUser size={20} className="btn_icon" />
 				</button>
-				<button className="btn_menu">
+				<button className="btn_menu" onClick={() => toggleSideIsOpen()}>
 					<BiMenu size={20} className="btn_icon" />
 				</button>
 			</div>
