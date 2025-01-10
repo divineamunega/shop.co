@@ -19,6 +19,7 @@ const StyledHeaderBanner = styled(motion.div)`
 	top: 0;
 	& a {
 		color: white;
+		text-decoration: underline;
 	}
 
 	button {

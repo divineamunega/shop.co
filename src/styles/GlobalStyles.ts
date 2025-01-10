@@ -14,6 +14,19 @@ html {
   font-size: 62.5%;
 }
 
+ul {
+    list-style: none;
+     
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
 `;
 
 export default GlobalStyle;
