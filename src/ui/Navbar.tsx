@@ -2,7 +2,10 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import { BiCart, BiSearch, BiUser } from "react-icons/bi";
 
-const StyledNavbar = styled.nav``;
+const StyledNavbar = styled.nav`
+	background-color: white;
+	display: flex;
+`;
 
 const Navbar = () => {
 	return (
@@ -10,7 +13,7 @@ const Navbar = () => {
 			<Logo />
 			<ul>
 				<li>Shop</li>
-				<li>Onsite</li>
+				<li>On sale</li>
 				<li>New Arrivals</li>
 				<li>Brands</li>
 			</ul>
@@ -18,7 +21,6 @@ const Navbar = () => {
 			<input type="search" />
 
 			<div>
-				<div>Hello World</div>
 				<button>
 					<BiSearch />
 				</button>
