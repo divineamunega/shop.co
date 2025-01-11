@@ -1,6 +1,9 @@
 import { AnimatePresence } from "motion/react";
 import styled from "styled-components";
 import { motion } from "motion/react";
+import Logo from "./Logo";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const StyledSideBar = styled(motion.div)`
 	position: fixed;
@@ -16,15 +19,31 @@ const StyledSideBar = styled(motion.div)`
 		top: 0;
 		right: -100%;
 		height: 100%;
+		padding: 2rem 2rem;
 	}
 `;
 
 type SidebarPropTypes = {
-	toggleSideIsOpen: () => void;
+	toggleSideIsOpen: (close?: string) => void;
 	sideIsOpen: boolean;
 };
 
 const Sidebar = ({ toggleSideIsOpen, sideIsOpen }: SidebarPropTypes) => {
+	useEffect(() => {
+		const handleKeyDown = function (e: KeyboardEvent) {
+			if (e.key === "Escape") {
+				toggleSideIsOpen("close");
+			}
+		};
+
+		if (sideIsOpen) {
+			window.addEventListener("keydown", handleKeyDown);
+		}
+
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [toggleSideIsOpen, sideIsOpen]);
 	return (
 		<AnimatePresence>
 			{sideIsOpen && (
@@ -54,7 +73,23 @@ const Sidebar = ({ toggleSideIsOpen, sideIsOpen }: SidebarPropTypes) => {
 						onClick={(e) => {
 							e.stopPropagation();
 						}}
-					></motion.div>
+					>
+						<Logo />
+						<ul>
+							<li>
+								<Link to="/hello">Shop</Link>
+							</li>
+							<li>
+								<Link to="/hello">On Sale</Link>
+							</li>
+							<li>
+								<Link to="/hello">New Arrival</Link>
+							</li>
+							<li>
+								<Link to="/hello">Brands</Link>
+							</li>
+						</ul>
+					</motion.div>
 				</StyledSideBar>
 			)}
 		</AnimatePresence>
