@@ -13,7 +13,7 @@ const StyledNavbar = styled.nav`
 	align-items: center;
 	justify-content: space-between;
 	font-family: var(--primary-font);
-	padding: 2rem 1rem;
+	padding: 2rem 2rem;
 	gap: 3rem;
 	position: relative;
 
@@ -83,7 +83,7 @@ const StyledNavbar = styled.nav`
 
 	.buttons {
 		display: flex;
-		/* gap: 0rem; */
+		gap: 2rem;
 
 		button {
 			border: none;
@@ -91,7 +91,6 @@ const StyledNavbar = styled.nav`
 			box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0);
 			transition: box-shadow;
 			transition-duration: 1s;
-			padding: 1rem;
 
 			&:focus {
 				box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0.7);
