@@ -21,7 +21,7 @@ const PageLayout = ({ children }: PageLayoutPropType) => {
 
 			<main>{children}</main>
 
-			<footer>Hello I am a footer</footer>
+			{/* <footer>Hello I am a footer</footer> */}
 		</StyledPageLayout>
 	);
 };

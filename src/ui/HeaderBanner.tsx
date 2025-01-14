@@ -16,6 +16,7 @@ const StyledHeaderBanner = styled(motion.div)`
 	justify-content: center;
 	font-weight: 500;
 	position: relative;
+	font-family: var(--primary-font);
 	top: 0;
 	& a {
 		color: white;

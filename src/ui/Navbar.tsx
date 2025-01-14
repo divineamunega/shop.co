@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import { BiCart, BiSearch, BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import variables from "../styles/variables";
 
 const StyledNavbar = styled.nav`
 	background-color: white;
@@ -10,13 +11,23 @@ const StyledNavbar = styled.nav`
 	justify-content: space-between;
 	padding: 2rem 8rem;
 	gap: 8rem;
+	font-family: var(--primary-font);
 
 	& > ul {
 		display: flex;
 		font-size: 1.6rem;
-		gap: 2.7rem;
+		gap: 1.7rem;
 		font-weight: 500;
 
+		& > li {
+			padding: 1rem;
+			transition: box-shadow;
+			transition-duration: 1s;
+			box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0);
+		}
+		& > li:has(a:focus) {
+			box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0.7);
+		}
 		& a {
 			color: black;
 		}
@@ -30,14 +41,22 @@ const StyledNavbar = styled.nav`
 		display: flex;
 		gap: 1rem;
 		align-items: center;
+		box-shadow: 0 0 0 5px rgba(${variables.primaryColor}, 0);
+		transition: box-shadow;
+		transition-duration: 1s;
+
+		&:has(input:focus) {
+			box-shadow: 0 0 0 5px rgba(${variables.primaryColor}, 0.4);
+		}
 
 		input {
 			background-color: rgba(0, 0, 0, 0);
 			border: none;
 			outline: none;
+			width: 100%;
+			outline: none;
+			border: none;
 			&:focus {
-				outline: none;
-				border: none;
 			}
 		}
 	}
@@ -49,6 +68,14 @@ const StyledNavbar = styled.nav`
 		button {
 			border: none;
 			background-color: rgba(0, 0, 0, 0);
+			box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0);
+			transition: box-shadow;
+			transition-duration: 1s;
+			padding: 1rem;
+
+			&:focus {
+				box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0.7);
+			}
 		}
 	}
 `;
@@ -74,7 +101,7 @@ const Navbar = () => {
 
 			<div className="input">
 				<BiSearch size={20} />
-				<input type="text" placeholder="Search for products..." />
+				<input type="search" placeholder="Search for products..." />
 			</div>
 
 			<div className="buttons">

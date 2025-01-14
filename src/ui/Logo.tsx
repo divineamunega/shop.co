@@ -1,14 +1,19 @@
 import styled from "styled-components";
+import variables from "../styles/variables";
 
 const StyledLogo = styled.div`
-	font-family: "IntegralCF";
-	font-weight: 900;
+	font-family: var(--secondary-font);
+	font-weight: 700;
 	color: black;
 	font-size: 2.8rem;
 	letter-spacing: 0.01px;
 	text-transform: uppercase;
-	/* box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5); */
+	box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0);
+	transition: box-shadow;
+	transition-duration: 1s;
+	padding: 1rem;
 	&:focus {
+		box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0.7);
 	}
 `;
 
