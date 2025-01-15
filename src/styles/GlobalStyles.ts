@@ -1,5 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 import variables from "./variables";
+import { lgScreen, mdScreen, smScreen } from "./mixins";
 const GlobalStyle = createGlobalStyle`
 :root {
     // Colors
@@ -25,9 +26,20 @@ const GlobalStyle = createGlobalStyle`
 
 }
 html {
-  font-size: 62.5%;
+    font-size: 55.5%;
 
-  
+  ${smScreen(css`
+		font-size: 62.5%;
+	`)}
+
+  ${mdScreen(css`
+		font-size: 70%;
+	`)}
+
+  ${lgScreen(css`
+		font-size: 75%;
+	`)}
+
 }
 
 ul {

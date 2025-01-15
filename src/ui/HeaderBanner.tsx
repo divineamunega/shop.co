@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import breakpoints from "../styles/breakpoints";
+import styled, { css } from "styled-components";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { lgScreen } from "../styles/mixins";
 
 const StyledHeaderBanner = styled(motion.div)`
 	width: 100%;
 	background-color: black;
 	color: white;
 	height: fit-content;
-	font-size: 1.8rem;
+	font-size: 1.4rem;
 	padding: 1.4rem 0rem;
 	display: flex;
 	align-items: center;
@@ -25,19 +25,17 @@ const StyledHeaderBanner = styled(motion.div)`
 
 	button {
 		position: absolute;
-		right: 8rem;
+		right: 2rem;
 		background-color: rgba(0, 0, 0, 0);
 		color: white;
 		font-size: 1.8rem;
 		font-weight: 700;
 		border: none;
 		cursor: pointer;
-	}
 
-	@media (max-width: ${breakpoints.mobile}) {
-		button {
-			display: none;
-		}
+		${lgScreen(css`
+			padding: 2rem 4rem;
+		`)}
 	}
 `;
 

@@ -12,6 +12,8 @@ const StyledLogo = styled.div`
 	transition: box-shadow;
 	transition-duration: 1s;
 	padding: 1rem;
+	display: flex;
+
 	&:focus {
 		box-shadow: 0 0 0 4px rgba(${variables.primaryColor}, 0.7);
 	}
