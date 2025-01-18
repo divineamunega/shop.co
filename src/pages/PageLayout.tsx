@@ -1,17 +1,13 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
 import Navbar from "../ui/Navbar";
 import HeaderBanner from "../ui/HeaderBanner";
+import { Outlet } from "react-router-dom";
 
 const StyledPageLayout = styled.div`
 	height: fit-content;
 `;
 
-type PageLayoutPropType = {
-	children: ReactNode;
-};
-
-const PageLayout = ({ children }: PageLayoutPropType) => {
+const PageLayout = () => {
 	return (
 		<StyledPageLayout>
 			<header>
@@ -19,7 +15,7 @@ const PageLayout = ({ children }: PageLayoutPropType) => {
 				<Navbar />
 			</header>
 
-			<main>{children}</main>
+			<Outlet />
 
 			{/* <footer>Hello I am a footer</footer> */}
 		</StyledPageLayout>

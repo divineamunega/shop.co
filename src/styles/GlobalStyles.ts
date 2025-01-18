@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     // Colors
     --background-color:rgba(${variables.backgroundColor});
     --primary-color: rgba(${variables.primaryColor});
+    --secondary-background-color: rgba(${variables.secondaryBackgroundColor});
 
     // Fonts
     --primary-font: 'Satoshi', sans-serif;

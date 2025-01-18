@@ -124,7 +124,7 @@ const StyledNavbar = styled.nav`
 `;
 
 const Navbar = () => {
-	const [sideIsOpen, setSideIsOpen] = useState(true);
+	const [sideIsOpen, setSideIsOpen] = useState(false);
 
 	const toggleSideIsOpen = (close = "") => {
 		if (close === "close") {
