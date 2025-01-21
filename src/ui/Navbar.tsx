@@ -25,7 +25,7 @@ const StyledNavbar = styled.nav`
 		padding: 2rem 4rem;
 	`)}
 
-	.nav_links {
+	&  > .nav_links {
 		display: none;
 		font-size: 1.4rem;
 		gap: 0.3rem;

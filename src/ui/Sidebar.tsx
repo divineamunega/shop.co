@@ -12,14 +12,45 @@ const StyledSideBar = styled(motion.div)`
 	height: 100dvh;
 	left: 0;
 	top: 0;
+
 	.drawer {
 		width: 35rem;
-		background-color: white;
+		background-color: var(--background-color);
 		position: absolute;
 		top: 0;
 		right: -100%;
 		height: 100%;
 		padding: 2rem 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+	}
+
+	& .nav_links {
+		font-size: 2rem;
+		gap: 2rem;
+		display: flex;
+		flex-direction: column;
+		& a {
+			color: var(--primary-color);
+			width: 100%;
+			height: 100%;
+			padding: 1.5rem 1rem;
+			border: 4px solid var(--background-color);
+			transition: border;
+			transition-duration: 0.5s;
+
+			&:focus {
+				transition-duration: 0.5s;
+				border: 4px solid var(--primary-color);
+			}
+		}
+		& > li {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 `;
 
@@ -74,8 +105,8 @@ const Sidebar = ({ toggleSideIsOpen, sideIsOpen }: SidebarPropTypes) => {
 							e.stopPropagation();
 						}}
 					>
-						<Logo />
-						<ul>
+						<Logo tabIndex={undefined} />
+						<ul className="nav_links">
 							<li>
 								<Link to="/hello">Shop</Link>
 							</li>

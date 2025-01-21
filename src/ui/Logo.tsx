@@ -19,9 +19,13 @@ const StyledLogo = styled.div`
 	}
 `;
 
-const Logo = () => {
+type LogoPropType = {
+	tabIndex?: number;
+};
+
+const Logo = ({ tabIndex }: LogoPropType) => {
 	return (
-		<StyledLogo tabIndex={1}>
+		<StyledLogo tabIndex={tabIndex}>
 			<span>Shop.co</span>
 		</StyledLogo>
 	);
